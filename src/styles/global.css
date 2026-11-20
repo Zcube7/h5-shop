@@ -1,0 +1,124 @@
+/* 主题变量集中在这里；:root:root 是为了压过 Vant 自己在 :root 上的定义 */
+:root:root {
+  --app-max-w: 480px;
+  --tabbar-h: 50px;
+  --page-bg: #f5f6f7;
+  --card-bg: #fff;
+  --text-1: #323233;
+  --text-2: #646566;
+  --text-3: #969799;
+  --brand: #ff6034;
+  --brand-2: #ee0a24;
+  --price: #ee0a24;
+  --radius: 10px;
+
+  --van-primary-color: var(--brand);
+  --van-tabbar-item-active-color: var(--brand);
+  --van-sidebar-selected-border-color: var(--brand);
+  --van-tabs-bottom-bar-color: var(--brand);
+  --van-submit-bar-price-color: var(--price);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #e8eaed; /* 电脑上打开时两侧的底色 */
+}
+
+body {
+  margin: 0;
+  color: var(--text-1);
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.app-shell {
+  position: relative;
+  max-width: var(--app-max-w);
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: var(--page-bg);
+}
+
+/* 底部固定的东西都限宽居中（left/right 为 0 + margin auto，不动 transform，弹出动画不受影响） */
+.van-tabbar--fixed,
+.van-action-bar,
+.van-submit-bar,
+.van-popup--bottom,
+.van-nav-bar--fixed,
+.fixed-bottom-bar {
+  left: 0 !important;
+  right: 0 !important;
+  width: auto !important;
+  max-width: var(--app-max-w);
+  margin: 0 auto;
+}
+
+/* 三个 Tab 页：各自是一个滚动容器，高度 = 屏幕 - 底部栏 */
+.tab-page {
+  height: calc(100vh - var(--tabbar-h) - env(safe-area-inset-bottom));
+  height: calc(100dvh - var(--tabbar-h) - env(safe-area-inset-bottom));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* 订单详情这类「按钮靠右」的底部操作栏 */
+.fixed-bottom-bar {
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+  background: #fff;
+  box-shadow: 0 -1px 0 #ebedf0;
+}
+
+/* 带底部操作栏的二级页 */
+.page-with-bar {
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+}
+
+.card {
+  margin: 10px 12px;
+  padding: 12px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+}
+
+.card-title {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.price {
+  color: var(--price);
+  font-weight: 600;
+}
+
+.price small {
+  font-size: 0.7em;
+}
+
+.ellipsis-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.muted {
+  color: var(--text-3);
+}
