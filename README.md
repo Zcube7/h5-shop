@@ -1,10 +1,6 @@
 # 小店 · 个人 H5 商城（虚拟商品）
 
-Vue 3 + Vite + Vant 4 的手机端商城基础架构。
-
-**在线预览**：<https://zcube7.github.io/h5-shop/>（建议用手机打开，电脑上会以 480px 宽居中显示）
-
-底部三个 Tab：
+Vue 3 + Vite + Vant 4 的手机端商城基础架构。底部三个 Tab：
 
 | 首页 | 分类 | 我的 |
 |---|---|---|
@@ -30,7 +26,6 @@ npm run preview    # 本地预览打包结果 http://localhost:4195
 
 - 手机上看：`npm run dev -- --host`，手机和电脑连同一个 Wi-Fi，打开终端里显示的 Network 地址。
 - `dist/` 不能直接双击 `index.html` 打开（浏览器不允许 file:// 加载模块脚本），要用 `npm run preview` 或放到服务器上。
-- 推送到 `main` 后，GitHub Actions 会自动跑测试、打包并发布到 GitHub Pages（`.github/workflows/deploy.yml`）。
 
 ## 目录
 
